@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1= title
+  - var image_names = ["Coffee1.jpg","Coffee2.jpg","Coffee3.jfif","Coffee4.jpg","Coffee6.jpg"]
+  - for(let i=0;i<3;i++){
+        - var number = Math.floor(Math.random()*5);
+        img(src=`/images/${image_names[number]}` alt=`image no ${image_names[number]}` style='width:300px; height:300px;')
+        br
+        br
+  - }
+
+
+
+
+
+
+
+//-   1) In selector.pug add in a variable image_names which is an array of strings, one for 
+//- each of your images. (Unbuffered) 
+//- 12) Next add a loop that iterates 3 times. (Unbuffered). 
+//- 13) In the loop generate a random value from 0 to 4 and use that to get a name from 
+//- image_names.  (Use:  Math.floor(Math.random()*5) ). 
+//- 14) Also in the loop, create an img element with properties src, alt, height and width. I 
+//- recommend using string interpolation on a back tick string to define the properties for 
+//- src and alt to include the name.  If you have an image named ghost.jpg, the src will be 
+//- “\images\ghost.jpg”.  All four images should have the same size. 
+//- 15) Every time you load this you should get a different display of 3 images. 
+//- 16) Add, Commit, Push to origin main 
+//- img(src="C:\Users\s545694\Desktop\fwb94kumbham\public\images\coffee1.jpg" alt='coffee' style='width:300px; height:300px;')
+//- 17) Screen shot 7 of your selector page on the local server. 

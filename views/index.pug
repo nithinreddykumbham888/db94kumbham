@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1= title
+  p Hello, This is <b>Nithin Reddy Kumbham</b> and welcome to #{title}
+  button(type="button",  onclick='update()', class="btn btn-success") Press Me 
+  br
+  br
+  br
+  div(id="target") Display
+  br
+  br
+  a(href='/nespresso') Click Me, I will redirect you to Nespresso 
+  br
+  br
+  a(href='/selector') Click Me, I will redirect you to Coffee_Selector 
+
+  script.
+     client_count = 0;
+     //console.log("hello");
+     function update()
+     {
+       document.getElementById("target").innerHTML = "Number of clicks is : " + ++client_count
+     }
+  
+  
