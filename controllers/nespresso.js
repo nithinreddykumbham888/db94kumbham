@@ -19,8 +19,25 @@ exports.nespresso_detail = function(req, res) {
 }; 
  
 // Handle Nespresso create on POST. 
-exports.nespresso_create_post = function(req, res) { 
-    res.send('NOT IMPLEMENTED: Nespresso create POST'); 
+exports.nespresso_create_post = async function(req, res) { 
+    console.log(req.body) 
+    let document = new nespresso(); 
+    // We are looking for a body, since POST does not have query parameters. 
+    // Even though bodies can be in many different formats, we will be picky 
+    // and require that it be a json object 
+    // {"costume_type":"goat", "cost":12, "size":"large"} 
+    document.nespresso_type = req.body.nespresso_type; 
+    document.country = req.body.country; 
+    document.price = req.body.price; 
+    console.log(document)
+    try{ 
+        let result = await document.save(); 
+        res.send(result); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }    
 }; 
  
 // Handle Nespresso delete form on DELETE. 

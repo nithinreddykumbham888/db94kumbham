@@ -13,7 +13,7 @@ router.get('/resource', api_controller.api);
 /// COSTUME ROUTES /// 
  
 // POST request for creating a Nespresso.  
-router.post('/resource/nespresso', nespresso_controller.nespresso_create_post); 
+router.post('/nespresso', nespresso_controller.nespresso_create_post); 
  
 // DELETE request to delete Nespresso. 
 router.delete('/resource/nespresso/:id', nespresso_controller.nespresso_delete); 
