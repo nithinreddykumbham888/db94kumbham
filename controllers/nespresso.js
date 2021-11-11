@@ -1,8 +1,16 @@
 var nespresso = require('../models/nespresso'); 
  
 // List of all Nespresso 
-exports.nespresso_list = function(req, res) { 
-    res.send('NOT IMPLEMENTED: Nespresso list'); 
+exports.nespresso_list = async function(req, res) { 
+    try{ 
+        theNespresso = await nespresso.find(); 
+        console.log(theNespresso);
+        res.send(theNespresso); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
 }; 
  
 // for a specific Nespresso. 

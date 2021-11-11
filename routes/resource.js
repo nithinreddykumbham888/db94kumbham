@@ -25,6 +25,6 @@ router.put('/resource/nespresso/:id', nespresso_controller.nespresso_update_put)
 router.get('/resource/nespresso/:id', nespresso_controller.nespresso_detail); 
  
 // GET request for list of all Nespresso items. 
-router.get('/resource/nespresso', nespresso_controller.nespresso_list); 
+router.get('/nespresso', nespresso_controller.nespresso_list); 
  
 module.exports = router; 
