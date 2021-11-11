@@ -32,3 +32,16 @@ exports.nespresso_delete = function(req, res) {
 exports.nespresso_update_put = function(req, res) { 
     res.send('NOT IMPLEMENTED: Nespresso update PUT' + req.params.id); 
 }; 
+
+// VIEWS 
+// Handle a show all view 
+exports.nespresso_view_all_Page = async function(req, res) { 
+    try{ 
+        theNespresso = await nespresso.find(); 
+        res.render('nespresso', { title: 'Nespresso Search Results', results: theNespresso }); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
+}; 
