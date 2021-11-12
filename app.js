@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose'); 
+var bp = require("body-parser")
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var nespressoRouter = require('./routes/nespresso');
@@ -11,6 +12,7 @@ var addmodsRouter = require('./routes/addmods');
 var selectorRouter = require('./routes/selector');
 var resourceRouter = require('./routes/resource');
 var nespresso = require("./models/nespresso"); 
+const bodyParser = require('body-parser');
 
 const connectionString =  process.env.MONGO_CON 
 console.log(connectionString)
@@ -59,11 +61,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bp.urlencoded({extended:false}))
+app.use(bp.json())
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// app.use(bo)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/nespresso', nespressoRouter);

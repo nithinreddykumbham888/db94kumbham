@@ -19,7 +19,7 @@ router.post('/nespresso', nespresso_controller.nespresso_create_post);
 router.delete('/resource/nespresso/:id', nespresso_controller.nespresso_delete); 
  
 // PUT request to update Nespresso. 
-router.put('/resource/nespresso/:id', nespresso_controller.nespresso_update_put); 
+router.put('/nespresso/:id', nespresso_controller.nespresso_update_put); 
  
 // GET request for one Nespresso. 
 router.get('/nespresso/:id', nespresso_controller.nespresso_detail); 
