@@ -22,7 +22,7 @@ router.delete('/resource/nespresso/:id', nespresso_controller.nespresso_delete);
 router.put('/resource/nespresso/:id', nespresso_controller.nespresso_update_put); 
  
 // GET request for one Nespresso. 
-router.get('/resource/nespresso/:id', nespresso_controller.nespresso_detail); 
+router.get('/nespresso/:id', nespresso_controller.nespresso_detail); 
  
 // GET request for list of all Nespresso items. 
 router.get('/nespresso', nespresso_controller.nespresso_list); 
