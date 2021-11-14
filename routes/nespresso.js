@@ -7,6 +7,10 @@ router.get('/', function(req, res, next) {
   res.render('nespresso', { title: 'Search Results Nespresso' });
 });
 
+/* GET detail nespresso page */ 
+router.get('/detail', nespresso_controlers.nespresso_view_one_Page); 
+ 
+
 /* GET nespressos */ 
 router.get('/', nespresso_controlers.nespresso_view_all_Page ); 
 module.exports = router;

@@ -1,0 +1,22 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let nespressoid = toShow._id 
+  - let nespressotype = toShow.nespresso_type 
+  - let countryc = toShow.country
+  - let pricep = toShow.price
+  div 
+    div.row 
+      div(class='nespressoAttr mr-3') Nespresso ID is: 
+      div #{nespressoid} 
+    div.row 
+      div(class='nespressoAttr mr-3') Nespresso Type is: 
+      div #{nespressotype} 
+    div.row 
+      div(class='nespressoAttr mr-3') Nespresso Country is: 
+      div #{countryc} 
+    div.row 
+      div(class='nespressoAttr mr-3') Nespresso Price is: 
+      div #{pricep}

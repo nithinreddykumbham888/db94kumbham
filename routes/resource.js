@@ -16,7 +16,7 @@ router.get('/resource', api_controller.api);
 router.post('/nespresso', nespresso_controller.nespresso_create_post); 
  
 // DELETE request to delete Nespresso. 
-router.delete('/resource/nespresso/:id', nespresso_controller.nespresso_delete); 
+router.delete('/nespresso/:id', nespresso_controller.nespresso_delete); 
  
 // PUT request to update Nespresso. 
 router.put('/nespresso/:id', nespresso_controller.nespresso_update_put); 
@@ -26,5 +26,5 @@ router.get('/nespresso/:id', nespresso_controller.nespresso_detail);
  
 // GET request for list of all Nespresso items. 
 router.get('/nespresso', nespresso_controller.nespresso_list); 
- 
+  
 module.exports = router; 
