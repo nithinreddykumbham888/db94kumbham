@@ -10,6 +10,9 @@ router.get('/', function(req, res, next) {
 /* GET detail nespresso page */ 
 router.get('/detail', nespresso_controlers.nespresso_view_one_Page); 
  
+/* GET create nespresso page */ 
+router.get('/create', nespresso_controlers.nespresso_create_Page); 
+ 
 
 /* GET nespressos */ 
 router.get('/', nespresso_controlers.nespresso_view_all_Page ); 
