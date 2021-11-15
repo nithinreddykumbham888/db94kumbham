@@ -1,0 +1,44 @@
+extends layout 
+ 
+block content 
+  h1= title 
+
+  - let nespressoid = toShow._id 
+  - let nespressotype = toShow.nespresso_type 
+  - let countryc = toShow.country
+  - let pricep = toShow.price
+
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
+    div #{nespressoid} 
+  - let actionid = "/resource/nespresso/" + nespressoid 
+ 
+  form(id='NespressoForm', action=actionid, method="PUT") 
+    div.form-group 
+        label.costumeAttr(for='nespresso_type ') Nespresso type 
+        input#costume_type(type='text', name='nespresso_type ', value= nespressotype ) 
+    div.form-group 
+        label.costumeAttr(for='country') Nespresso country
+        input#size(type='text', name='country', value= countryc ) 
+    div.form-group 
+        label.costumeAttr(for='price') Nespresso price
+        input#cost(type='number', name='price', value= pricep) 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['NespressoForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target))
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    }); 
