@@ -1,0 +1,53 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let nespressoid = toShow._id 
+    - let nespressotype = toShow.nespresso_type 
+    - let countryc = toShow.country
+    - let pricep = toShow.price 
+    - let actionid = "/resource/nespresso/" + nespressoid 
+    script let actionid = "#{actionid}" 
+    div 
+      div.row 
+        div(class='nespressoAttr mr-3') Nespresso ID is: 
+        div #{nespressoid} 
+      div.row 
+        div(class='nespressoAttr mr-3') Nespresso Type is: 
+        div #{nespressotype} 
+      div.row 
+        div(class='nespressoAttr mr-3') Nespresso Country is: 
+        div #{countryc} 
+      div.row 
+        div(class='nespressoAttr mr-3') Nespresso Price is: 
+        div #{pricep} 
+ 
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
+ 
+  script. 
+    function cancel() { 
+      // Go back to the home page for the costume collection 
+      window.location.href='/nespresso' 
+    } 
+  script. 
+    function deleteOnid() { 
+      console.log("starting delete") 
+      // delete first 
+      fetch(actionid, { 
+        method: 'DELETE'       
+      }).then((resp) => { 
+        return resp.json();  
+      }).then((body) => { 
+        alert("Delete succeded") 
+        window.location.href='/nespresso' 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Delete failed " + error ) 
+      }); 
+    } 

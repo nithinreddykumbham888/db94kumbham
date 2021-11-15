@@ -15,6 +15,9 @@ router.get('/create', nespresso_controlers.nespresso_create_Page);
 
 /* GET create update page */ 
 router.get('/update', nespresso_controlers.nespresso_update_Page); 
+
+/* GET create nespresso page */ 
+router.get('/delete', nespresso_controlers.nespresso_delete_Page); 
  
 
 /* GET nespressos */ 
