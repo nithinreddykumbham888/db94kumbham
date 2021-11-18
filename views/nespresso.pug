@@ -5,20 +5,15 @@ block content
   - let array=[{"type":"Coffee","country":"United Kingdom","price":15},{"type":"Brewer","country":"United States","price":20},{"type":"Tea","country":"India","price":25}]
   - let items = results
    div(class="container-fluid")
-    div(class="row")
+    div(class="row m-1")
      each item in array 
-      div(class="col-sm-4") Type: #{item.type}
-      div(class="col-sm-4") Country: #{item.country}
-      div(class="col-sm-4") Price: #{item.price}
-    //-   br
-    //-   br
-    //-  each item in array1 
-    //-   div(class="col-sm-4") Type: #{item.type}
-    //-   div(class="col-sm-4") Country: #{item.country}
-    //-   div(class="col-sm-4") Price: #{item.price}
-    //-   br
-    //-   br
-    //-  each item in array2 
-    //-   div(class="col-sm-4") Type: #{item.type}
-    //-   div(class="col-sm-4") Country: #{item.country}
-    //-   div(class="col-sm-4") Price: #{item.price} 
+      - let destination = `dispatch(\"/nespresso/update?id=${item._id}\")`
+      div(class="col-sm-4",class="m-l") Type: #{item.type}
+      div(class="col-sm-4",class="m-l") Country: #{item.country}
+      div(class="col-sm-4",class="m-l") Price: #{item.price}
+        button.btn( class="btn-primary ml-1", onclick= destination) Update 
+
+   script. 
+     function dispatch(path){ 
+       window.location.href=path 
+     } 
