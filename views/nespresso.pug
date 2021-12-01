@@ -6,12 +6,18 @@ block content
   - let items = results
    div(class="container-fluid")
     div(class="row m-1")
-     each item in array 
+     each item in items 
       - let destination = `dispatch(\"/nespresso/update?id=${item._id}\")`
-      div(class="col-sm-4",class="m-l") Type: #{item.type}
+      - let destination1 = `dispatch(\"/nespresso/create\")`
+      - let destination2 = `dispatch(\"/nespresso/detail?id=${item._id}\")`
+      - let destination3 = `dispatch(\"/nespresso/delete?id=${item._id}\")`
+      div(class="col-sm-4",class="m-l") Type: #{item.nespresso_type}
       div(class="col-sm-4",class="m-l") Country: #{item.country}
       div(class="col-sm-4",class="m-l") Price: #{item.price}
-        button.btn( class="btn-primary ml-1", onclick= destination) Update 
+        button.btn( class="btn-primary ml-1", onclick= destination1, style = "margin:5px;") Create
+        button.btn( class="btn-primary ml-1", onclick= destination, style = "margin:5px;" ) Update 
+        button.btn( class="btn-primary ml-1", onclick= destination2, style = "margin:5px;" ) Detail
+        button.btn( class="btn-primary ml-1", onclick= destination3, style = "margin:5px;" ) Delete
 
    script. 
      function dispatch(path){ 

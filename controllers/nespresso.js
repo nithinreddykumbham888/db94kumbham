@@ -68,7 +68,12 @@ exports.nespresso_update_put = async function (req, res) {
         // if (req.body.checkbox) toUpdate.sale = true;
         // else toUpdate.sale = false;
         // Do updates of properties 
-        if (req.body.nespresso_type) { toUpdate.nespresso_type = req.body.nespresso_type; }
+        if (req.body.nespresso_type) { 
+            var ty = req.body.nespresso_type
+            if(ty.length>5){
+            toUpdate.nespresso_type = req.body.nespresso_type;
+            }
+         }
         if (req.body.country) { toUpdate.country = req.body.country; }
         if (req.body.price) { toUpdate.price = req.body.price; }
         let result = await toUpdate.save();
@@ -85,6 +90,7 @@ exports.nespresso_update_put = async function (req, res) {
 exports.nespresso_view_all_Page = async function (req, res) {
     try {
         theNespresso = await nespresso.find();
+        console.log(theNespresso)
         res.render('nespresso', { title: 'Nespresso Search Results', results: theNespresso });
     }
     catch (err) {

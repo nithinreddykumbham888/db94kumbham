@@ -60,7 +60,7 @@ async function recreateDB(){
       console.log("Second object saved") 
   });
 
-  let instance3 = new nespresso({nespresso_type:"Tea",  country:'India', price:25}); 
+  let instance3 = new nespresso({nespresso_type:"TeaBrew",  country:'India', price:25}); 
   instance3.save( function(err,doc) { 
       if(err) return console.error(err); 
       console.log("Third object saved") 
